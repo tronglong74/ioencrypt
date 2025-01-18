@@ -1,0 +1,49 @@
+{
+  "name": "ioencrypt-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
+    "react-start": "react-scripts start",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
+    "build": "react-scripts build",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "antd": "^5.6.0",
+    "concurrently": "^7.0.0",
+    "electron": "^25.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "wait-on": "^7.0.1",
+    "electron-is-dev": "^2.0.0",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^23.6.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.ioencrypt.app",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
